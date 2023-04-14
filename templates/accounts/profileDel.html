@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% block contant %}
+<div class="container py-3 my-3">
+        <nav aria-label="breadcrumb">
+        <ol class="breadcrumb px-0 bg-transparent font-weight-medium mb-0">
+        <li class="breadcrumb-item d-flex align-items-center">
+            <a href="{% url 'home' %}" class="text-muted">Dashboard</a>
+                <svg xmlns="http://www.w3.org/2000/svg" class="fill-current width-3 height-3 mx-3 text-muted" viewBox="0 0 7.41 12"><path d="M0,1.41,4.58,6,0,10.59,1.41,12l6-6-6-6Z"></path></svg></li>
+                                    <li class="breadcrumb-item d-flex align-items-center">
+                        <a href="{% url 'user-account' %}" class="text-muted">Account</a>
+                <svg xmlns="http://www.w3.org/2000/svg" class="fill-current width-3 height-3 mx-3 text-muted" viewBox="0 0 7.41 12"><path d="M0,1.41,4.58,6,0,10.59,1.41,12l6-6-6-6Z"></path></svg></li>
+        <li class="breadcrumb-item active text-dark">Delete</li>
+        </ol>
+    </nav>
+
+<h2 class="mb-3 d-inline-block">Delete</h2>
+
+<div class="card border-0 shadow-sm">
+    <div class="card-header align-items-center">
+        <div class="row">
+            <div class="col"><div class="font-weight-medium py-1">Delete</div></div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="alert alert-danger" role="alert">
+            Deleting your account is permanent, and will remove all the data associated with it.
+        </div>
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="{{ form.current_password.id_for_label }}">{{ form.current_password.label}}</label>
+                {% render_field form.current_password|attr:"type:password"  placeholder="Enter Current password" class="form-control" %}
+            </div>
+            <div class="col text-right">
+                <button type="submit" name="submit" class="btn btn-outline-danger">Delete</button>
+            </div>
+        </form>
+    </div>
+</div>    </div>
+{% endblock %}

@@ -1,0 +1,224 @@
+{% extends "base.html" %} {% block title %} {{ page }} {% endblock %}
+{% block contant %}
+<div class="container py-3 my-3">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb px-0 bg-transparent font-weight-medium mb-0">
+      <li class="breadcrumb-item d-flex align-items-center">
+        <a
+          href="{% url 'home' %}"
+          class="text-muted" >Dashboard</a>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="fill-current width-3 height-3 mx-3 text-muted"
+          viewBox="0 0 7.41 12">
+          <path d="M0,1.41,4.58,6,0,10.59,1.41,12l6-6-6-6Z"></path>
+        </svg>
+      </li>
+      <li class="breadcrumb-item active text-dark">{{ page }}</li>
+    </ol>
+  </nav>
+
+  <div class="d-flex">
+    <div class="flex-grow-1">
+      <h2 class="mb-3 d-inline-block">{{ page }}</h2>
+    </div>
+    <div>
+    </div>
+  </div>
+
+  <div class="card border-0 shadow-sm">
+    <div class="card-header align-items-center">
+      <div class="row">
+        <div class="col"><div class="font-weight-medium py-1">{{ page }}</div></div>
+        <div class="col-auto">
+          <form method="GET" action="">
+            <div class="input-group input-group-sm">
+              <input
+                class="form-control"
+                name="search"
+                placeholder="Search"
+                value=""/>
+              <div class="input-group-append">
+                <button
+                  type="button"
+                  class="btn btn-primary d-flex align-items-center
+                    dropdown-toggle dropdown-toggle-split reset-after"
+                  data-enable="tooltip"
+                  title=""
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  data-original-title="Filters">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="fill-current width-4 height-4"
+                    viewBox="0 0 18 18">
+                    <path d="M0,0V2H18V0ZM2,4l5,6v8h4V10l5-6Z"></path></svg>&ZeroWidthSpace;
+                </button>
+                <div
+                  class="dropdown-menu dropdown-menu-right border-0 shadow width-64"
+                  id="search-filters">
+                  <div class="dropdown-header py-1">
+                    <div class="row">
+                      <div class="col">
+                        <div class="font-weight-medium m-0 text-dark">
+                          Filters
+                        </div>
+                      </div>
+                      <div class="col-auto">
+                        <a
+                          href=""
+                          class="text-secondary"
+                          >Reset</a
+                        >
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="dropdown-divider"></div>
+
+                  <div class="form-group px-4">
+                    <label for="i-role" class="small">Role</label>
+                    <select name="role" id="i-role" class="custom-select custom-select-sm">
+                      <option value="">All</option>
+                      <option value="0">User</option>
+                      <option value="1">Admin</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group px-4">
+                    <label for="i-by" class="small">Search by</label>
+                    <select
+                      name="by"
+                      id="i-by"
+                      class="custom-select custom-select-sm"
+                    >
+                      <option value="name" selected="">Name</option>
+                      <option value="email">Email</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group px-4">
+                    <label for="i-sort" class="small">Sort</label>
+                    <select
+                      name="sort"
+                      id="i-sort"
+                      class="custom-select custom-select-sm"
+                    >
+                      <option value="desc" selected="">Descending</option>
+                      <option value="asc">Ascending</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group px-4 mb-2">
+                    <button
+                      type="submit"
+                      class="btn btn-primary btn-sm btn-block"
+                    >
+                      Search
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="list-group list-group-flush my-n3">
+        <div class="list-group-item px-0 text-muted">
+          <div class="row align-items-center">
+            <div class="col">
+              <div class="row">
+                <div class="col-12 col-lg-5">Action Time</div>
+                <div class="col-12 col-lg-4">Action Name</div>
+                <div class="col-12 col-lg-3">content Type</div>
+              </div>
+            </div>
+            <div class="col-auto">
+              <div class="btn btn-outline-primary btn-sm invisible">Edit</div>
+            </div>
+          </div>
+        </div>
+        {% for object in object_list %}
+            <div class="list-group-item px-0">
+              <div class="row align-items-center">
+                <div class="col text-truncate">
+                  <div class="row text-truncate">
+                    <div
+                      class="col-12 col-lg-5 d-flex align-items-center text-truncate">
+                        {{ object.action_time }}
+                    </div>
+                    <div class="col-12 col-lg-4 text-truncate">
+                        {{ object.change_message }}
+                    </div>
+                    <div class=" col-12 col-lg-3 text-truncate d-flex align-items-center">
+                        {{ object.content_type }}
+                    </div>
+                  </div>
+                </div>
+                <div class="col-auto">
+                    {{ object.user }}
+                </div>
+              </div>
+            </div>
+        {% endfor %}
+        <div class="mt-3 align-items-center">
+          <div class="row">
+            <div class="col">
+            </div>
+            <div class="col-auto">
+              <nav class="d-block d-md-none">
+                <ul class="pagination">
+                  <li class="page-item disabled" aria-disabled="true">
+                    <span class="page-link">« Previous</span>
+                  </li>
+
+                  <li class="page-item">
+                    <a class="page-link" href="" rel="next">Next »</a>
+                  </li>
+                </ul>
+              </nav>
+            {% if is_paginated %}
+              <nav class="d-none d-md-block">
+                <ul class="pagination">
+                {% if page_obj.has_previous %}
+                    <li class="page-item" aria-label="« Previous">
+                    <a class="page-link"
+                      href="{% url 'users_list' %}?page={{ page_obj.previous_page_number }}"
+                      rel="next" aria-label="Next »">‹
+                    </a>
+                  </li>
+                    {% else %}
+                    <li class="page-item disabled" aria-disabled="true" aria-label="« Previous">
+                        <span class="page-link">‹</span>
+                  </li>
+                {% endif %}
+                  <li class="page-item active" aria-current="page">
+                    <span class="page-link">{{ page_obj.number }}</span>
+                  </li>
+                {% if page_obj.has_next %}
+                  <li class="page-item">
+                    <a class="page-link"
+                      href="{% url 'users_list' %}?page={{ page_obj.next_page_number }}"
+                      rel="next" aria-label="Next »">›
+                    </a>
+                  </li>
+                    {% else %}
+                    <li class="page-item disabled" aria-disabled="true" aria-label="Next »">
+                        <span class="page-link">›</span>
+                  </li>
+                {% endif %}
+                </ul>
+              </nav>
+            {% endif %}
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,102 @@
+{% extends 'publicarea/base.html' %}
+{% load static %}
+
+{% block seotags %}
+    <title>{{ news.headline }}</title>
+    <meta name="robots" content="noindex,nofollow" />
+    
+{% endblock %}
+
+{% block styles %}
+    <style>
+          body{
+            background-color: #000000;
+        }
+        .background-learner-news
+            {
+                background-color: #000000;
+                width: 90%;
+                margin-left: 5%;
+            }
+            .background-chnge-news{
+                background-color: #1F2833;
+                border-radius: 20px;
+                height: auto;
+            }
+   
+            iframe{
+                    width: 560px;
+                    height: 315px;
+                }
+                
+            @media only screen and (max-width:600px){
+                iframe{
+                    width: 100% !important;
+                    height: auto !important;
+                }
+                .background-learner-news
+            {
+                background-color: #000000;
+                width: 100%;
+                margin-left: 0%;
+            }
+            }
+    </style>
+{% endblock %}
+
+
+{% block content %}
+      <div class="col-sm-12 p-0" style=" overflow-x:hidden">
+            <div class="col-sm-12 background-learner-news p-5" style=" overflow-x:hidden;overflow-y: hidden">
+                <div class="col-sm-12 background-learner-news ">
+                    <div class="row background-chnge-news ">
+                        <div class="col-sm-12 text-center pt-5">
+                            <h2 style="color:white" class='new-headline-text'> {{ news.headline}}</h2>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class='m-4 h-75 text-center'>
+                                <img class="img-fluid rounded" width='700' height="300" src="{{ news.img.url }}" alt="First slide" />
+                            </div>
+                        </div>
+                        <div class="col-sm-12 " style=" color: white">
+                            <p class="pl-4 pt-1" >Veröffentlichungsdatum : {{news.create_on}} </p>
+                        </div>
+                        <div class="col-sm-12">
+                            <p class="pl-3 pr-5" style="color: white">
+                                {{news.dec}}
+                            </p>
+                        </div>
+
+                       <div class="col text-center">
+                           <iframe src="{{ object.youtube_url }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+
+                        <div class="col-sm-12" style="color: white !important;">
+                            <p style="color: white !important; padding-left:1%; padding-right:1%">
+                                {{ news.text|safe }}
+                            </p>
+                        </div>
+                        {% if news.button_text1 %}
+                        <div class="col-sm-12 text-center mb-4">
+                            <a href="{{ news.link_url1 }}" target="_blank" class="btn btn-dark pl-5 pr-5" style=" background-color: black; border: 1px solid white"> {{ news.button_text1 }} </a>
+                        </div>
+                        {% endif %}
+                        <div class="col-sm-12 text-center mb-4">
+                            <a href="/deals/?search={{ object.offer }}" class="btn btn-dark pl-5 pr-5 text-white" style=" background-color: black; border: 1px solid white">
+                                {% if object.offer_Button %} {{ object.offer_Button }} {% else %} Deal für{% endif %}
+                            </a>
+                        </div>
+
+                        <div class="col-sm-12 mb-5">
+                            <p style=" color: white; padding-left: 1%; padding-right: 1%">
+                                {{ news.text2 }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    </div>
+{% endblock %}
+
+

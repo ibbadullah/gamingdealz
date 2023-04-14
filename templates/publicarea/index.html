@@ -1,0 +1,163 @@
+{% extends 'publicarea/base.html' %}
+{% load static %}
+{% load publicarea %}
+{% block seotags %}
+    <title>Best Gaming Deals Website - Gaming-dealz.de</title>
+    
+    <meta name="robots" content="noindex,nofollow" />
+    
+    <link rel="stylesheet" href="{% static 'js/coursel/coursel.css' %}">
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+
+{% endblock %}
+
+{% block styles %}
+    <style>
+        body{
+            background-color: #1F2833;
+        }
+        /* big previous & next buttons */
+        .flickity-prev-next-button {
+            background-color: black !important;
+        }
+        /* icon color */
+        .flickity-button-icon {
+            fill: white !important;
+        }
+        /* hide disabled button */
+        .flickity-button:disabled {
+            display: none;
+        }
+        .flickity-button:hover{
+            opacity: 0.8;
+        }
+        .flickity-prev-next-button:hover{
+            opacity: 0.8;
+        }
+
+    </style>
+{% endblock %}
+
+{% block content %}
+   <div class="col-sm-12 back-image" style="height: 100vh">
+        <div class="backlayer"></div>
+        <div class="row padding-t">
+            <div class="col-md-6 offset-md-3 col-sm-8 offset-sm-2">
+                <form method="GET" action="{% url 'PublicProductSearch' %}">
+                    <div class="input-group home-search input-group-lg" >
+                        <input type="text" name="search" class="form-control bg-white text-dark text-white" placeholder="Wonach suchst du?" aria-label="" aria-describedby="basic-addon1" style=" background-color: gray; border-color: gray;color: white"/>
+                        <div class="input-group-append">
+                            <button class="btn btn-dark" type="submit" style=" background-color: #1f2833;border-color: #1f2833"><i class="fas fa-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-sm-12 padding-tt carousel"  data-flickity='{ "groupCells": true }'>
+            {% for category in categories %}
+                <div class='home-categories carousel-cell'>
+                    <div class="home-card-bg">
+                        <a href="{% url 'ProductsByCategory' %}?categories={{ category.id }}" class='text-decoration-none'>
+                            <div>
+                                {% if category.description == 'Fernseher' %}
+                                    <img class="" src="{% static 'img/publicarea/Fernseher.png' %}" alt="card image cap " />
+                                {% elif category.description == 'Konsolen' %}
+                                    <img class="" src="{% static 'img/publicarea/Konsolen.png' %}" alt="card image cap " />
+                                {% elif category.description == 'Gaming-Zubehör' %}
+                                    <img class="" src="{% static 'img/publicarea/GamingZubeh.png' %}" alt="card image cap " />
+                                {% else %}
+                                    <img class="" src="{{ category.image_url }}" alt="card image cap " />
+                                {% endif %}
+
+                                <div class="text-center">
+                                    <h5 class="home-card-title" style="color: white">{{ category.description }}</h5>
+                                    <a href="{% url 'ProductsByCategory' %}?categories={{ category.id }}" class="btn btn-dark card-details-btn" style="background-color: black; border: 1px solid white">Zu den Deals</a>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+    <!--favorite products-->
+    <div class="col-sm-12" style="background-color:#1F2833!important; position: relative;z-index: 100;overflow-x: hidden;overflow-y: hidden">
+
+        <div class='d-flex justify-content-between' style="overflow: hidden">
+            <div class="row pl-5 pt-5">
+                <span>
+                    <img src="{% static 'img/publicarea/line.png' %}" class="img-fluid" />
+                </span>
+                <span class="pl-2" style="color:white">
+                    <h3 class='our-fov-text'>Unsere favoriten</h3>
+                </span>
+            </div>
+            <div class='pt-5' >
+                <a href='/favorite-deals'>
+                    <button class='btn text-white btn-dark mr-4 our-fov-button'> Alle anzeigen</button>
+                </a>
+            </div>
+        </div>
+        <div class="col-sm-12 padding-ttt carousel" data-flickity='{ "groupCells": true }' >
+            {% for fav in favourite %}
+                <div class="home-categories carousel-cell">
+                    <div class="home-product-card-bg">
+                        <a href="{{ fav.clickout_url }}" class="text-white text-decoration-none" target='_blank' rel="noreferrer">
+                            <div>
+                                <img class="" src="{{fav.main_image}}" alt="card image cap" />
+                                <div class="text-center">
+                                    <h5 class="product-card-title" style="color:white">{{ fav.name }}</h5>
+                                    <button href="#" class="btn btn-dark card-details-btn" style="background-color:black;border: 1px solid white">
+                                        <a href="{{ fav.clickout_url }}" class='text-white' target='_blank' rel="noreferrer">
+                                            Eur : {{ fav.price_info.price.amount|priceDot }} <i class="fas fa-chevron-right"></i>
+                                        </a>
+                                    </button>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+
+        </div>
+    </div>
+
+    <br /><br/>
+
+
+
+
+    <!-- news -->
+    <div class="col-sm-12 mb-5 news-section" style="border-color: white;padding-bottom: 5%; overflow-x: hidden;overflow-y: hidden">
+        <div class="row pl-5 pt-5" >
+            <span><img src="{% static 'img/publicarea/line.png' %}" class="img-fluid" /></span><span class=" pl-2" style="color: white"><h3 class='news-text'>News</h3></span></div>
+        <div class="col-sm-12 padding-ttt news-section" >
+
+            <div class='mobile-screen-top-search carousel' data-flickity='{ "groupCells": true }'>
+                {% for GNew in GNews %}
+                    <div class="news-card carousel-cell" >
+                        <div style=" border-radius: 15px; overflow: hidden;background-color: #161a1b00; border-style: none">
+                            <a href='{% url 'PublicNewsDetails' GNew.slug %}' style="color:white; text-decoration: none;" class='text-decoration-none'>
+                                <img class="card-img-top" height="200" width='270' src='{{ GNew.img.url }}' alt="card image cap " />
+                                <div class="card-body text-left pl-0 pr-0" style=" background-color: #161a1b00; border-bottom-left-radius: 15px;border-bottom-right-radius: 15px">
+                                    <h5 class="card-title custom-card-title" style="color: white">{{ GNew.headline }}</h5>
+                                    <p class="news-published-date" style=" color:grey">Veröffentlichungsdatum : {{GNew.create_on}}</p>
+                                    <a href="{% url 'PublicNewsDetails' GNew.slug  %}" style=" text-decoration: none; color: white; width: 100%; margin-bottom: 20px">
+                                        <button class="btn btn-dark" style=" width: 100%; margin-bottom:20px"> Zur news</button>
+                                    </a>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                {% endfor %}
+        </div>
+    </div>
+    </div>
+
+
+
+    
+{% endblock %}

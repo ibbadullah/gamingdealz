@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+{% block title %} {{ page }} {% endblock %}
+{% block css %}
+<style>
+  .django-ckeditor-widget {
+    width: 100%;
+  }
+</style>
+{% endblock %}
+{% block contant %}
+<div class="container py-3 my-3">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb px-0 bg-transparent font-weight-medium mb-0">
+      <li class="breadcrumb-item d-flex align-items-center">
+        <a href="{% url 'home' %}" class="text-muted">Dashboard</a>
+        <svg xmlns="http://www.w3.org/2000/svg" class="fill-current width-3 height-3 mx-3 text-muted"
+          viewBox="0 0 7.41 12">
+          <path d="M0,1.41,4.58,6,0,10.59,1.41,12l6-6-6-6Z"></path>
+        </svg>
+      </li>
+      <li class="breadcrumb-item d-flex align-items-center">
+        <a href="{% url 'news_list' %}" class="text-muted">{{ page }}</a>
+        <svg xmlns="http://www.w3.org/2000/svg" class="fill-current width-3 height-3 mx-3 text-muted"
+          viewBox="0 0 7.41 12">
+          <path d="M0,1.41,4.58,6,0,10.59,1.41,12l6-6-6-6Z"></path>
+        </svg>
+      </li>
+      <li class="breadcrumb-item active text-dark">New</li>
+    </ol>
+  </nav>
+
+  <h2 class="mb-3 d-inline-block">New</h2>
+
+  <div class="card border-0 shadow-sm">
+    <div class="card-header">
+      <div class="font-weight-medium py-1">{{ page }}</div>
+    </div>
+    <div class="card-body">
+      <form method="POST" enctype="multipart/form-data" id="registration-form">
+        {% include "include/form_error.html" %}
+        {% csrf_token %}
+        {{ form.media }}
+        <div class="form-group ">
+          <label for="{{ form.headline.id_for_label }}">{{ form.headline.label }}</label>{% if form.headline.errors %}
+          <small class="text-danger">*</small> {% endif %}
+          {% render_field form.headline class="form-control" %}
+        </div>
+        <div class="form-group ">
+          <label for="{{ form.img.id_for_label }}">Corer Images</label>{% if form.img.errors %} <small
+            class="text-danger">*</small> {% endif %}
+          {% render_field form.img class="form-control" %}
+        </div>
+        <div class="form-group ">
+          <label for="{{ form.category.id_for_label }}">Category</label>{% if form.img.errors %} <small
+            class="text-danger">*</small> {% endif %}
+          {% render_field form.category class="form-control" %}
+        </div>
+        <div class="form-group ">
+          <label for="{{ form.dec.id_for_label }}">Description</label>{% if form.dec.errors %} <small
+            class="text-danger">*</small> {% endif %}
+          {% render_field form.dec class="form-control" %}
+        </div>
+        <div class="form-group ">
+          <label for="{{ form.youtube_url.id_for_label }}">{{ form.youtube_url.label }}</label>
+          {% if form.youtube_url.errors %} <small class="text-danger">*</small> {% endif %}
+          {% render_field form.youtube_url class="form-control" %}
+        </div>
+        <div class="form-group ">
+          <label for="{{ form.text.id_for_label }}">{{ form.text.label }}</label>{% if form.text.errors %} <small
+            class="text-danger">*</small> {% endif %}
+          {% render_field form.text class="form-control" %}
+        </div>
+        <div class="form-group">
+          <label for="{{ form.button_text1.id_for_label }}"> Button Text </label>{% if form.button_text1.errors %}
+          <small class="text-danger">*</small> {% endif %}
+          {% render_field form.button_text1 class="form-control" %}
+        </div>
+        <div class="form-group">
+          <label for="{{ form.link_url1.id_for_label }}"> Button Link </label>{% if form.link_url2.errors %} <small
+            class="text-danger">*</small> {% endif %}
+          {% render_field form.link_url1 class="form-control" %}
+        </div>
+        <div class="form-group">
+          <label for="{{ form.offer_Button.id_for_label }}"> Deal Button Name </label>{% if form.offer_Button.errors %}
+          <small class="text-danger">*</small> {% endif %}
+          {% render_field form.offer_Button class="form-control" %}
+        </div>
+        <div class="form-group">
+          <label for="{{ form.offer.id_for_label }}"> {{ form.offer.label }} </label>{% if form.offer.errors %}
+          <small class="text-danger">*</small> {% endif %}
+          {% render_field form.offer class="form-control" %}
+        </div>
+        <div class="form-group">
+          <label for="{{ form.text2.id_for_label }}"> Text </label>{% if form.text2.errors %} <small
+            class="text-danger">*</small> {% endif %}
+          {% render_field form.text2 class="form-control" rows="3" %}
+        </div>
+        <div class="form-group">
+          <label for="{{ form.activate.id_for_label }}"> Active </label>{% if form.activate.errors %} <small
+            class="text-danger">*</small> {% endif %}
+          {% render_field form.activate class="form-control-md" %}
+        </div>
+        <div class="col text-right">
+          <button type="submit" name="submit" class="btn btn-primary">
+            Save
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

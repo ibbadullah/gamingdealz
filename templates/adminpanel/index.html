@@ -1,0 +1,453 @@
+{% extends 'base.html' %} {% block title %} Gaming Deals {% endblock %}
+{% block contant %}
+<div class="container py-3 my-3">
+  <h4 class="mb-0">Overview</h4>
+
+  <div class="row mb-5">
+    <div class="col-12 col-md-6 col-xl-3 mt-3">
+      <div class="card border-0 shadow-sm h-100 overflow-hidden">
+        <div class="card-body d-flex">
+          <div
+            class="d-flex position-relative text-primary width-10 height-10 align-items-center justify-content-center flex-shrink-0">
+            <div
+              class="
+                position-absolute bg-primary opacity-10
+                top-0 right-0 bottom-0 left-0 border-radius-35"
+            ></div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="fill-current width-5 height-5"
+              viewBox="0 0 110 110"
+            >
+                <g><path d="M80.833,29.638c0.309-0.061,0.63-0.002,0.896,0.161c0.455,0.188,0.776,0.635,0.778,1.158l0.264,36.584 c0.021,0.449-0.198,0.895-0.611,1.141l-14.941,8.912c-0.211,0.16-0.475,0.254-0.759,0.254c-0.069,0-0.138-0.004-0.204-0.016 l-38.773-4.311c-0.667-0.033-1.198-0.586-1.198-1.262V35.057h0.002c-0.015-0.498,0.268-0.979,0.752-1.191l19.45-8.55l0.001,0.002 c0.203-0.09,0.433-0.126,0.669-0.096L80.833,29.638L80.833,29.638L80.833,29.638z M53.613,0c14.789,0,28.202,6.018,37.918,15.694 c9.716,9.716,15.694,23.089,15.694,37.918c0,10.817-3.226,20.927-8.732,29.343l23.207,25.293l-16.009,14.633L83.311,98.258 c-8.497,5.664-18.724,8.967-29.697,8.967c-14.79,0-28.203-6.018-37.918-15.693C5.979,81.814,0,68.441,0,53.612 c0-14.79,6.019-28.202,15.695-37.918C25.41,5.979,38.784,0,53.613,0L53.613,0z M87.283,19.942 c-8.614-8.614-20.532-13.964-33.67-13.964s-25.056,5.35-33.67,13.964S5.979,40.475,5.979,53.612 c0,13.138,5.349,25.056,13.963,33.671c8.614,8.613,20.533,13.963,33.67,13.963s25.056-5.35,33.67-13.963 c8.614-8.615,13.964-20.533,13.964-33.671C101.247,40.475,95.897,28.557,87.283,19.942L87.283,19.942L87.283,19.942z M68.174,40.325v33.136l11.626-6.57l-0.244-33.406L68.174,40.325L68.174,40.325L68.174,40.325z M64.293,73.824V40.677l-15.63-1.657 l-0.542,15.802l-5.806-3.954l-5.806,3.281l1.198-16.528l-7.994-1.135V70.23L64.293,73.824L64.293,73.824L64.293,73.824z M62.583,29.782L50.84,36.253l15.863,2.024l10.666-6.556L62.583,29.782L62.583,29.782L62.583,29.782z M39.712,34.833l11.373-6.559 l-3.899-0.511l-14.592,6.161L39.712,34.833L39.712,34.833z"></path></g>
+            </svg>
+          </div>
+
+          <div class="flex-grow-1"></div>
+
+          <div class="d-flex align-items-center h2 font-weight-bold mb-0 text-truncate">
+            {{ request.products|length }}
+          </div>
+        </div>
+        <div class="card-footer bg-base-2 border-0">
+          <a href="{% url 'product_list' %}"
+            class="text-muted font-weight-medium d-inline-flex align-items-baseline">
+              Products
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="width-3 height-3 fill-current ml-2"
+              viewBox="0 0 7.41 12">
+              <path d="M0,1.41,4.58,6,0,10.59,1.41,12l6-6-6-6Z"></path></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6 col-xl-3 mt-3">
+      <div class="card border-0 shadow-sm h-100 overflow-hidden">
+        <div class="card-body d-flex">
+          <div
+            class="d-flex position-relative text-primary width-10 height-10 align-items-center justify-content-center flex-shrink-0">
+            <div
+              class="
+                position-absolute
+                bg-primary
+                opacity-10
+                top-0
+                right-0
+                bottom-0
+                left-0
+                border-radius-35
+              "
+            ></div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="fill-current width-6 height-6"
+              viewBox="0 0 34 34"
+            >
+              <g id="news_1_"><path d="M4,14h20v-2H4V14z M15,26h7v-2h-7V26z M15,22h9v-2h-9V22z M15,18h9v-2h-9V18z M4,26h9V16H4V26z M28,10V6H0v22c0,0,0,4,4,4   h25c0,0,3-0.062,3-4V10H28z M4,30c-2,0-2-2-2-2V8h24v20c0,0.921,0.284,1.558,0.676,2H4z"></path></g>
+            </svg>
+          </div>
+
+          <div class="flex-grow-1"></div>
+
+          <div
+            class="
+              d-flex
+              align-items-center
+              h2
+              font-weight-bold
+              mb-0
+              text-truncate
+            "
+          >
+            {{ request.totalNews|length }}
+          </div>
+        </div>
+        <div class="card-footer bg-base-2 border-0">
+          <a
+            href="{% url 'news_list' %}"
+            class="
+              text-muted
+              font-weight-medium
+              d-inline-flex
+              align-items-baseline
+            "
+            >News
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="width-3 height-3 fill-current ml-2"
+              viewBox="0 0 7.41 12"
+            >
+              <path d="M0,1.41,4.58,6,0,10.59,1.41,12l6-6-6-6Z"></path></svg
+          ></a>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6 col-xl-3 mt-3">
+      <div class="card border-0 shadow-sm h-100 overflow-hidden">
+        <div class="card-body d-flex">
+          <div
+            class="d-flex position-relative text-primary width-10 height-10 align-items-center justify-content-center flex-shrink-0">
+            <div
+              class="
+                position-absolute
+                bg-primary
+                opacity-10
+                top-0
+                right-0
+                bottom-0
+                left-0
+                border-radius-35
+              ">
+            </div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="fill-current width-5 height-5"
+              viewBox="1 4 22 20">
+              <g>
+                  <path d="M9,9c0-1.7,1.3-3,3-3s3,1.3,3,3c0,1.7-1.3,3-3,3S9,10.7,9,9z M12,14c-4.6,0-6,3.3-6,3.3V19h12v-1.7C18,17.3,16.6,14,12,14z   "></path></g><g><g><circle cx="18.5" cy="8.5" r="2.5"></circle></g><g><path d="M18.5,13c-1.2,0-2.1,0.3-2.8,0.8c2.3,1.1,3.2,3,3.2,3.2l0,0.1H23v-1.3C23,15.7,21.9,13,18.5,13z"></path></g></g><g><g><circle cx="18.5" cy="8.5" r="2.5"></circle></g><g><path d="M18.5,13c-1.2,0-2.1,0.3-2.8,0.8c2.3,1.1,3.2,3,3.2,3.2l0,0.1H23v-1.3C23,15.7,21.9,13,18.5,13z"></path></g></g><g><g><circle cx="5.5" cy="8.5" r="2.5"></circle></g><g><path d="M5.5,13c1.2,0,2.1,0.3,2.8,0.8c-2.3,1.1-3.2,3-3.2,3.2l0,0.1H1v-1.3C1,15.7,2.1,13,5.5,13z"></path></g></g>
+            </svg>
+          </div>
+          <div class="flex-grow-1"></div>
+          <div
+            class="d-flex align-items-center h2 font-weight-bold mb-0 text-truncate">
+              {{ request.totalUser|length }}
+          </div>
+        </div>
+        <div class="card-footer bg-base-2 border-0">
+          <a
+            href="{% url 'users-list' %}"
+            class="text-muted font-weight-medium d-inline-flex align-items-baseline"
+            >Users
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="width-3 height-3 fill-current ml-2"
+              viewBox="0 0 7.41 12"
+            >
+              <path d="M0,1.41,4.58,6,0,10.59,1.41,12l6-6-6-6Z"></path></svg
+          ></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h4 class="mb-0">Activity</h4>
+  <div class="row mb-5">
+    <div class="col-12 col-lg-6 mt-3">
+      <div class="card border-0 shadow-sm">
+        <div class="card-header align-items-center">
+          <div class="row">
+            <div class="col">
+              <div class="font-weight-medium py-1">Latest Products</div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          {% for product in request.products|slice:":6" %}
+          <div class="list-group list-group-flush my-n3">
+            <div class="list-group-item px-0">
+              <div class="row align-items-center">
+                <div class="col d-flex text-truncate">
+                  <div class="text-truncate">
+                    <div class="d-flex align-items-center">
+                      <div class="text-truncate">
+                        <a href="{% url 'product_edit' product.slug %}" class="text-primary" dir="ltr">{{ product.name }}</a>
+                      </div>
+                    </div>
+                    <div class="d-flex align-items-center">
+                      <div class="text-muted text-truncate small">
+                        <span>
+                            {{ product.category }}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+
+        <div class="card-footer bg-base-2 border-0">
+          <a
+            href="{% url 'product_list' %}"
+            class="
+              text-muted
+              font-weight-medium
+              d-flex
+              align-items-center
+              justify-content-center
+            ">
+              View all
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="width-3 height-3 fill-current ml-2"
+              viewBox="0 0 7.41 12">
+              <path d="M0,1.41,4.58,6,0,10.59,1.41,12l6-6-6-6Z"></path></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-lg-6 mt-3">
+      <div class="card border-0 shadow-sm">
+        <div class="card-header align-items-center">
+          <div class="row">
+            <div class="col">
+              <div class="font-weight-medium py-1">Latest News</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-body">
+          {% for news in request.totalNews|slice:":6" %}
+          <div class="list-group list-group-flush my-n3">
+            <div class="list-group-item px-0">
+              <div class="row align-items-center">
+                <div class="col d-flex text-truncate">
+                  <div class="text-truncate">
+                    <div class="d-flex align-items-center">
+                      <div class="text-truncate">
+                        <a href="{% url 'news_edit' news.slug %}" class="text-primary" dir="ltr">{{ news.headline }}</a>
+                      </div>
+                    </div>
+                    <div class="d-flex align-items-center">
+                      <div class="text-muted text-truncate small">
+                        <span>
+                            {{ news.dec|safe|slice:":40" }}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+
+        <div class="card-footer bg-base-2 border-0">
+          <a
+            href="{% url 'news_list' %}"
+            class="
+              text-muted
+              font-weight-medium
+              d-flex
+              align-items-center
+              justify-content-center
+            "
+            >View all
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="width-3 height-3 fill-current ml-2"
+              viewBox="0 0 7.41 12"
+            >
+              <path d="M0,1.41,4.58,6,0,10.59,1.41,12l6-6-6-6Z"></path></svg
+          ></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h4 class="mb-0">More</h4>
+
+  <div class="row">
+    <div class="col-12 col-xl-4 mt-3">
+      <div class="card border-0 h-100 shadow-sm">
+        <div class="card-body d-flex">
+          <div
+            class="
+              d-flex
+              position-relative
+              text-primary
+              width-12
+              height-12
+              align-items-center
+              justify-content-center
+              flex-shrink-0
+              mr-3
+            "
+          >
+            <div
+              class="
+                position-absolute
+                bg-primary
+                opacity-10
+                top-0
+                right-0
+                bottom-0
+                left-0
+                border-radius-35
+              "
+            ></div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="fill-current width-5 height-5"
+              viewBox="0 0 110 110"
+            >
+                <g><path d="M80.833,29.638c0.309-0.061,0.63-0.002,0.896,0.161c0.455,0.188,0.776,0.635,0.778,1.158l0.264,36.584 c0.021,0.449-0.198,0.895-0.611,1.141l-14.941,8.912c-0.211,0.16-0.475,0.254-0.759,0.254c-0.069,0-0.138-0.004-0.204-0.016 l-38.773-4.311c-0.667-0.033-1.198-0.586-1.198-1.262V35.057h0.002c-0.015-0.498,0.268-0.979,0.752-1.191l19.45-8.55l0.001,0.002 c0.203-0.09,0.433-0.126,0.669-0.096L80.833,29.638L80.833,29.638L80.833,29.638z M53.613,0c14.789,0,28.202,6.018,37.918,15.694 c9.716,9.716,15.694,23.089,15.694,37.918c0,10.817-3.226,20.927-8.732,29.343l23.207,25.293l-16.009,14.633L83.311,98.258 c-8.497,5.664-18.724,8.967-29.697,8.967c-14.79,0-28.203-6.018-37.918-15.693C5.979,81.814,0,68.441,0,53.612 c0-14.79,6.019-28.202,15.695-37.918C25.41,5.979,38.784,0,53.613,0L53.613,0z M87.283,19.942 c-8.614-8.614-20.532-13.964-33.67-13.964s-25.056,5.35-33.67,13.964S5.979,40.475,5.979,53.612 c0,13.138,5.349,25.056,13.963,33.671c8.614,8.613,20.533,13.963,33.67,13.963s25.056-5.35,33.67-13.963 c8.614-8.615,13.964-20.533,13.964-33.671C101.247,40.475,95.897,28.557,87.283,19.942L87.283,19.942L87.283,19.942z M68.174,40.325v33.136l11.626-6.57l-0.244-33.406L68.174,40.325L68.174,40.325L68.174,40.325z M64.293,73.824V40.677l-15.63-1.657 l-0.542,15.802l-5.806-3.954l-5.806,3.281l1.198-16.528l-7.994-1.135V70.23L64.293,73.824L64.293,73.824L64.293,73.824z M62.583,29.782L50.84,36.253l15.863,2.024l10.666-6.556L62.583,29.782L62.583,29.782L62.583,29.782z M39.712,34.833l11.373-6.559 l-3.899-0.511l-14.592,6.161L39.712,34.833L39.712,34.833z"></path></g>
+            </svg>
+          </div>
+          <div>
+            <div class="text-dark font-weight-medium">Products</div>
+
+            <a
+              href="{% url 'product_create' %}"
+              class="text-secondary text-decoration-none stretched-link"
+              >Create a new Product.</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-xl-4 mt-3">
+      <div class="card border-0 h-100 shadow-sm">
+        <div class="card-body d-flex">
+          <div
+            class="
+              d-flex
+              position-relative
+              text-primary
+              width-12
+              height-12
+              align-items-center
+              justify-content-center
+              flex-shrink-0
+              mr-3
+            "
+          >
+            <div
+              class="
+                position-absolute
+                bg-primary
+                opacity-10
+                top-0
+                right-0
+                bottom-0
+                left-0
+                border-radius-35
+              "
+            ></div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="fill-current width-6 height-6"
+              viewBox="0 0 36 36"
+            >
+                <g id="news_1_"><path d="M4,14h20v-2H4V14z M15,26h7v-2h-7V26z M15,22h9v-2h-9V22z M15,18h9v-2h-9V18z M4,26h9V16H4V26z M28,10V6H0v22c0,0,0,4,4,4   h25c0,0,3-0.062,3-4V10H28z M4,30c-2,0-2-2-2-2V8h24v20c0,0.921,0.284,1.558,0.676,2H4z"></path></g>
+            </svg>
+          </div>
+          <div>
+            <div class="text-dark font-weight-medium">News</div>
+
+            <a
+              href="{% url 'news_create' %}"
+              class="text-secondary text-decoration-none stretched-link"
+              >Create a new News.</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-xl-4 mt-3">
+      <div class="card border-0 h-100 shadow-sm">
+        <div class="card-body d-flex">
+          <div
+            class="
+              d-flex
+              position-relative
+              text-primary
+              width-12
+              height-12
+              align-items-center
+              justify-content-center
+              flex-shrink-0
+              mr-3
+            "
+          >
+            <div
+              class="
+                position-absolute
+                bg-primary
+                opacity-10
+                top-0
+                right-0
+                bottom-0
+                left-0
+                border-radius-35
+              "
+            ></div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="fill-current width-5 height-5"
+              viewBox="1 4 22 20"
+            >
+              <g><path d="M9,9c0-1.7,1.3-3,3-3s3,1.3,3,3c0,1.7-1.3,3-3,3S9,10.7,9,9z M12,14c-4.6,0-6,3.3-6,3.3V19h12v-1.7C18,17.3,16.6,14,12,14z   "></path></g><g><g><circle cx="18.5" cy="8.5" r="2.5"></circle></g><g><path d="M18.5,13c-1.2,0-2.1,0.3-2.8,0.8c2.3,1.1,3.2,3,3.2,3.2l0,0.1H23v-1.3C23,15.7,21.9,13,18.5,13z"></path></g></g><g><g><circle cx="18.5" cy="8.5" r="2.5"></circle></g><g><path d="M18.5,13c-1.2,0-2.1,0.3-2.8,0.8c2.3,1.1,3.2,3,3.2,3.2l0,0.1H23v-1.3C23,15.7,21.9,13,18.5,13z"></path></g></g><g><g><circle cx="5.5" cy="8.5" r="2.5"></circle></g><g><path d="M5.5,13c1.2,0,2.1,0.3,2.8,0.8c-2.3,1.1-3.2,3-3.2,3.2l0,0.1H1v-1.3C1,15.7,2.1,13,5.5,13z"></path></g></g>
+            </svg>
+          </div>
+          <div>
+            <div class="text-dark font-weight-medium">Users</div>
+
+            <a
+              href="{% url 'users-create' %}"
+              class="text-secondary text-decoration-none stretched-link"
+              >Create a new User.</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Delete User</h5>
+      </div>
+      <div class="modal-body">
+        Are you Sure you want to delete this?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class=" btn btn-outline-secondary" data-dismiss="modal">No</button>
+          <form method="POST" id="delete_model" action="{% url 'news_del' %}">
+              {% csrf_token %}
+              <input value="" type="hidden" id="news_input_del" name="input_del">
+              <button type="submit" class="btn btn-outline-primary">Yes</button>
+          </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block js %}
+<script>
+    function getId(d){
+        document.getElementById("news_input_del").value=d
+        console.log(d)
+    }
+</script>
+{% endblock %}

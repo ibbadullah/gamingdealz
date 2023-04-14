@@ -1,0 +1,1 @@
+from Gaming_Deals.wsgi import application

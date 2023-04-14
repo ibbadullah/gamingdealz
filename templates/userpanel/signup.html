@@ -1,0 +1,94 @@
+{% extends 'userpanel/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% block title %}
+Sign UP
+{% endblock %}
+{% block head %}
+    <meta name="description" content="Create an account on gaming-deals.de. It is free."/>
+    <meta name="keywords" content="gaming-deals signup, gaming-deals account"/>
+    <meta name="author" content="gaming-deals"/>
+    <meta name="robots" content="index,follow"/>
+    <meta property="og:title" content="Sign Up"/>
+    <meta property="og:description" content="Create an account on gaming-deals.de. It is free."/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="https://gaming-deals.de/signup"/>
+    <meta property="og:image" content="https://i.ibb.co/k9Bcqbm/Final-logo-black.jpg"/>
+    <meta property="og:site_name" content="gaming-deals"/>
+    <link rel="canonical" href="https://gaming-deals.de/signup"/>
+{% endblock %}
+{% block contact %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <img width="300" src="{% static 'img/logo_light.png' %}" class="pt-4 img-user" />
+            </div>
+            <div class="col-md-8">
+                <h2 class="text-white text-center py-4">Sign Up</h2>
+                <form method="POST">
+                    {% if form.errors %}
+                        {% for field in form %}
+                            {% for error in field.errors %}
+                                <div class="text-center">
+                                    <small class="text-truncate badge badge-danger">
+                                        <strong>{{ error|escape }}</strong>
+                                    </small>
+                                </div>
+                            {% endfor %}
+                        {% endfor %}
+                        {% for error in form.non_field_errors %}
+                            <div class="text-center">
+                                <small class="text-truncate badge badge-danger">
+                                    <strong>{{ error|escape }}</strong>
+                                </small>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                    {% csrf_token %}
+                            <div class="col-md-12 p-2">
+                                <div class="input-group field-size text-center">
+                                    <div class="input-group-prepend">
+                                        <button class="btn bg-white btn-pirmary button-color" type="button"><i style="color: gray" class="fas fa-user"></i></button>
+                                    </div>
+                                    {% render_field form.name placeholder="Name" class="form-control field-background shadow-none focus-1" id="effect-11" aria-describedby="basic-addon1" %}
+                                </div>
+                            </div>
+                            <div class="col-md-12 p-2">
+                                <div class="input-group field-size text-center">
+                                    <div class="input-group-prepend">
+                                        <button class="bg-white btn btn-pirmary button-color" type="button"> <i style="color: gray" class="far fa-envelope"></i></button>
+                                    </div>
+                                    {% render_field form.email placeholder="Email" class="form-control field-background shadow-none focus-1" id="effect-11" aria-describedby="basic-addon1" %}
+                                </div>
+                            </div>
+                                <div class="col-md-12 p-2">
+                                    <div class="input-group field-size text-center">
+                                        <div class="input-group-prepend">
+                                            <button class="btn bg-white btn-pirmary button-color" type="button"><i style="color: gray" class="fas fa-lock"></i></button>
+                                        </div>
+                                        {% render_field form.password1 placeholder="Password" class="form-control field-background shadow-none focus-1" id="effect-11" aria-describedby="basic-addon1" %}
+                                    </div>
+                                </div>
+                                <div class="col-md-12 p-2">
+                                    <div class="input-group field-size text-center">
+                                        <div class="input-group-prepend">
+                                            <button class="bg-white btn btn-pirmary button-color" type="button"> <i style="color: gray" class="fas fa-lock"></i></button>
+                                        </div>
+                                        {% render_field form.password2 placeholder="Re-Password" class="form-control field-background shadow-none focus-1" id="effect-11" aria-describedby="basic-addon1" %}
+                                    </div>
+                                </div>
+                    <div class="col-sm-12 mt-3">
+                <div class="col text-center">
+                    <button class="btn btn-dark" style='border-radius: 50px ; background-color: #11161d; border-color: lightgray'>
+                        <h5 class="m-auto pl-4 pr-4 pb-1" >Sign-up</h5>
+                    </button>
+                </div>
+                <div class="col text-center pl-3 pt-3 pb-5">
+                    <h6 style= 'color: white'>Already have an account? <a href="{% url 'user_login' %}" style='color: white'><b>Login</b></a></h6>
+                </div>
+            </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

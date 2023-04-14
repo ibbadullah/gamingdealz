@@ -1,0 +1,63 @@
+{% extends 'userpanel/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% block title %}
+Login
+{% endblock %}
+{% block head %}
+    <meta name="description" content="Login to your gaming-deals account."/>
+    <meta name="keywords" content="gaming-deals login"/>
+    <meta name="author" content="gaming-deals"/>
+    <meta name="robots" content="index,follow"/>
+    <meta property="og:title" content="Login"/>
+    <meta property="og:description" content="Login to your gaming-deals.de account."/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="https://gaming-deals.de/login"/>
+    <meta property="og:image" content="https://i.ibb.co/k9Bcqbm/Final-logo-black.jpg"/>
+    <meta property="og:site_name" content="gaming-deals"/>
+    <link rel="canonical" href="https://gaming-deals.de/login"/>
+{% endblock %}
+{% block contact %}
+    <div class="container">
+    <div class="row">
+        {% include 'include/message.html' %}
+            <div class="col-md-4 text-center" >
+                <img width="300" src="{% static 'img/logo_light.png' %}" class="pt-4 img-user" />
+            </div>
+            <div class="col-md-8">
+                <h2 class="text-white text-center pt-4">Welcome Back</h2>
+                <form method="POST">
+                    {% include 'include/form_error.html' %}
+                    {% csrf_token %}
+                        <div class="col-md-12 my-3">
+                            <div class="input-group field-size text-center">
+                                <div class="input-group-prepend">
+                                    <button class="btn bg-white btn-pirmary button-color" type="button"><i style="color: gray" class="far fa-envelope"></i>  </button>
+                                </div>
+                                <input type="email" name="email" class="form-control field-background shadow-none focus-1" id="effect-11" placeholder="Email" aria-label aria-describedby="basic-addon1" />
+                            </div>
+                        </div>
+                        <div class="col-md-12 my-3">
+                            <div class="input-group field-size text-center">
+                                <div class="input-group-prepend">
+                                    <button class="btn bg-white btn-pirmary button-color" type="button"><i style="color: gray" class="fas fa-lock"></i>  </button>
+                                </div>
+                                <input type="password" name="password" class="form-control field-background shadow-none focus-1" id="effect-11" placeholder="Password" aria-label aria-describedby="basic-addon1" />
+                            </div>
+                        </div>
+                    <div class="col-sm-12 mt-4">
+                        <div class="col text-center">
+                            <button class="btn btn-dark" style='border-radius: 50px ; background-color: #11161d; border-color: lightgray'>
+                                <h5 class="m-auto pl-4 pr-4 pb-1" >Login</h5>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <div class="col text-center pt-3 mb-5">
+                    <h6 style= 'color: white'><a href="https://gaming-deals.de/user/reset_password/" style='color: white'><b>Forgot</b> Password?</a> </h6>
+                    <h6 style= 'color: white'><a href="{% url 'user_singup' %}" style='color: white'><b>Create Account</b></a></h6>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,323 @@
+{% extends 'publicarea/base.html' %}
+{% load static %}
+{% load publicarea %}
+{% block seotags %}
+
+    <title>Shop Deals</title>
+    <!--  {% if request.GET.categories %}{{ cates.description }} {% else %} {{request.GET.search}} {% endif %} -->
+    <meta name="robots" content="noindex,nofollow" />
+{% endblock %}
+{% block styles %}
+    <style>
+    .spc-font h5{
+        font-size: 18px !important;
+    }
+    </style>
+{% endblock %}
+
+
+{% block content %}
+     <div class="col-sm-12 p-0" style="background-color:black; overflow-x: hidden">
+            <div class='row' style=" margin-left: -6px">
+                <div class='col-md-3 p-4'>
+                    <a href='{% url "PublicHome" %}'>
+                        <button class='btn btn-dark p-2 text-white px-5'><i class="fas fa-arrow-left"></i></button>
+                    </a>
+                    <h5 data-toggle="modal" data-target="#filtersModal" style="color: white" class="mobile-filter-button"><i class="fas fa-filter"></i> Filter</h5>
+                </div>
+                <div class="col-md-8 p-4">
+                    <form method="GET" action="{% url 'PublicProductSearch' %}">
+                        <div class="input-group input-group-lg" >
+                            {% if request.GET.shops %}
+                                <input type="hidden" name="shops" value="{{ request.GET.shops }}">
+                            {% endif %}
+                            <input type="text" name="search" value="{{ request.GET.search }}" class="form-control" placeholder="Wonach suchst du?" aria-describedby="basic-addon1" style=" background-color: white; border-color: gray; color: gray"/>
+                            <div class="input-group-append">
+                                <button class="btn btn-dark" type="submit" style="background-color: #1F2833; border-color: #1F2833"><i class="fas fa-search"></i></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-md-4 col-lg-3 desktop-filter">
+                    <div class="col-sm-12">
+                        <div class="col-sm-12 mb-3" style="background-color: #1F2833;border-radius: 10px">
+                        <form action="" method="get">
+                        {% if request.GET.search %}
+                            <input type="hidden" value="{{ request.GET.search }}" name="search">
+                        {% endif %}
+                        {% if request.GET.shops %}
+                            <input type="hidden" value="{{ request.GET.shops }}" name="shops">
+                        {% endif %}
+                            <div class="col-sm-12">
+                                <h5 style="color: white" class="pt-4 pb-4"> <i class="fas fa-filter"></i> Filter</h5>
+                            </div>
+                            <div class="col-sm-12 mb-3 pb-3">
+                                <a href="{% url 'PublicProductSearch' %}?{% if request.GET.search %}search={{ request.GET.search }}{% else %}shops={{ request.GET.shops }}{% endif %}" class="btn btn-dark pl-5 pr-5" style=" background-color: #1F2833; border: 1px solid white">Filter löschen <i class="fas fa-ban"></i></a>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <div class="col-sm-12 spc-font" style="color: white">
+                                        <h5>Preis von</h5>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <input name="price_amount_gte" class="form-control" type='number' value="{% if request.GET.price_amount_gte %}{{ request.GET.price_amount_gte }}{% else %}0{% endif %}" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-2 m-auto">
+                                    <div class="col-sm-12 pt-3">
+                                        <h1 style="color: white">-</h1>
+                                    </div>
+                                </div>
+                                <div class="col-sm-5">
+                                    <div class="col-sm-12 spc-font" style=" color: white">
+                                        <h5>Preis bis</h5>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <input name="price_amount_lte" class="form-control" type='number'
+                                               value="{% if request.GET.price_amount_lte %}{{ request.GET.price_amount_lte }}{% else %}999{% endif %}" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12 mt-3 spc-font">
+                                <h5 style="color:white"> Sortieren nach </h5>
+                            </div>
+
+                            <div class="col-sm-12">
+                                <select name="sort" class="pt-2 pb-2 mb-2 spc-font" style="width: 100%;background-color: #1F2833; color: white; border-radius: 10px">
+                                    {% if request.GET.sort %}
+                                        {% if request.GET.sort == "-price" %}
+                                        <option selected value="-price">Absteigend</option>
+                                        <option value="price">Aufsteigend</option>
+                                        {% endif %}
+                                        {% if request.GET.sort == "price" %}
+                                        <option value="-price">Absteigend</option>
+                                        <option selected value="price">Aufsteigend</option>
+                                        {% endif %}
+                                    {% else %}
+                                        <option selected value="-price">Absteigend</option>
+                                        <option value="price">Aufsteigend</option>
+                                    {% endif %}
+                                </select>
+                            </div>
+
+                            <button type="submit" class='btn btn-dark p-2 text-white px-5' style="margin-top: 10px;margin-bottom: 10px;width: 100%">Filtern</button>
+                        </form>
+                            <div class="col-sm-12">
+                                <h5 style="color: white" class="pt-4">Shops</h5>
+                            </div>
+                            
+                            <div class="col-sm-12 p-3 collapse-cat-pc">
+                                <div class="limitedShops">
+                                    {% for shop in ShopsList|slice:30 %}
+                                        <h6>
+                                            {% if shop.description == 'Lego' %}
+                                            {% else %}
+                                                <a href="{% url 'PublicProductSearch' %}?shops={{ shop.id }}"  class='text-white' style="text-decoration: none"> {{shop.name}}</a>
+                                            {% endif %}
+                                            
+                                        </h6>
+                                    {% endfor %}
+                                </div>
+
+                                <div class="fullShops" style="display:none">
+                                    {% for shop in ShopsList %}
+                                        <h6>
+                                            {% if shop.description == 'Lego' %}
+                                            {% else %}
+                                                <a href="{% url 'PublicProductSearch' %}?shops={{ shop.id }}"  class='text-white' style="text-decoration: none"> {{shop.name}}</a>
+                                            {% endif %}
+                                            
+                                        </h6>
+                                    {% endfor %}
+                                </div>
+                                
+
+                                <button type="submit" class='btn btn-dark p-2 text-white px-5 showAllShopsBtn' style="margin-top: 10px;margin-bottom: 10px;width: 100%">Show all</button>
+                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-md-8 col-lg-9">
+                    <div class="col-sm-12">
+                        <div class="row mb-5">
+                            {% for offer in offers.items %}
+                                <a style="margin: 6px" href="{{ offer.clickout_url }}" target="_blank" class="card-bg m-card-bg">
+                                    <div class='card-image-wrapper m-card-image-wrapper'>
+                                        <img class="card-img m-card-img" src="{{ offer.main_image }}" alt="{{ offer.name}}"/>
+                                    </div>
+                                    <div class="card-product-title m-card-product-title">
+                                        <p class="card-text" style="color: white; font-size: 13px">
+                                            <b>{{offer.name|slice:"0:50" }} </b>
+                                        </p>
+                                        <button class="btn btn-price m-btn-price">
+                                            EUR : {{ offer.price_info.price.amount|priceDot }}
+                                        </button>
+                                    </div>
+                                    <div class="button-wraper m-button-wraper">
+                                        <button class="btn btn-price">
+                                            EUR : {{ offer.price_info.price.amount|priceDot }}
+                                        </button>
+                                        <h6 style="color:white" class="text-center mt-1 m-shop-name">Ka: <b style=" color: gray">{{ offer.category.description|slice:"0:15" }}</b></h6>
+                                    </div>
+                                </a>
+                            {% endfor %}
+                        </div>
+
+                        <nav aria-label="...">
+                          <ul class="pagination">
+                            {% if offers.offset|back == -20 %}
+                            <li class="page-item disabled">
+                              <span class="page-link"> < Previous </span>
+                            </li>
+                              {% else %}
+                                <li class="page-item" >
+                                    <a class="" href="{% url 'PublicProductSearch' %}?{% if request.GET.search%}search={{request.GET.search}}{%endif%}{% if request.GET.shops %}&shops={{request.GET.shops}}{%endif%}{% if request.GET.price_amount_gte%}&price_amount_gte={{request.GET.price_amount_gte}}{%endif%}{% if request.GET.price_amount_lte %}&price_amount_lte={{request.GET.price_amount_lte}}{%endif%}{%if request.GET.sort%}&sort={{request.GET.sort}}{%endif%}&offset={{ offers.offset|back }}">
+                                        <span class="page-link"> < Previous </span>
+                                    </a>
+                                </li>
+                              {% endif %}
+
+                          {% if offerstotal_offset %}
+                            <li class="page-item disabled">
+                              <a class="page-link"> Next > </a>
+                            </li>
+                          {% else %}
+                              <li class="page-item">
+                              <a class="page-link" href="{% url 'PublicProductSearch' %}?{% if request.GET.search%}search={{request.GET.search}}{%endif%}{% if request.GET.shops %}&shops={{request.GET.shops}}{%endif%}{% if request.GET.price_amount_gte%}&price_amount_gte={{request.GET.price_amount_gte}}{%endif%}{% if request.GET.price_amount_lte %}&price_amount_lte={{request.GET.price_amount_lte}}{%endif%}{%if request.GET.sort%}&sort={{request.GET.sort}}{%endif%}&offset={{offers.offset|next}}"> Next > </a>
+                            </li>
+                          {% endif %}
+                          </ul>
+                        </nav>
+
+                    </div>
+                </div>
+
+
+
+                <div class="modal fade" id="filtersModal" tabIndex="-1" role="dialog"
+                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="margin-top:20px; margin-bottom: 200px">
+                    <div class="modal-dialog" role="document">
+
+                        <div class="col-sm-12 col-md-4 col-lg-3 modal-content">
+                            <div class="col-sm-12">
+                                <div class="col-sm-12 mb-3" style=" background-color: #1F2833; border-radius: 10px">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                                        style=" position:absolute;right: 5px; z-index:10">
+                                        <i class="fa fa-window-close" style="color: white"></i>
+                                    </button>
+                                <form method="get" action="">
+                                {% if request.GET.search %}
+                                    <input type="hidden" value="{{ request.GET.search }}" name="search">
+                                {% endif %}
+                                    <div class="col-sm-12">
+                                        <h5 style="color: white" class="pt-4 pb-4"><i
+                                            class="fas fa-filter"></i> Filter</h5>
+                                    </div>
+                                    <div class="col-sm-12 mb-3 pb-3">
+                                        <a href="{% url 'PublicProductSearch' %}?{% if request.GET.search %}search={{ request.GET.search }}{% else %}shops={{ request.GET.shops }}{% endif %}" class="btn btn-dark pl-5 pr-5" style="background-color:#1F2833; border: 1px solid white">Filter löschen <i class="fas fa-ban"></i></a>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-sm-5">
+                                            <div class="col-sm-12" style="color: white">
+                                                <h5>Preis von</h5>
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <input name="price_amount_gte" class="form-control" type='number' value="{% if request.GET.price_amount_gte %}{{ request.GET.price_amount_gte }}{% else %}0{% endif %}" />
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-2 m-auto">
+                                            <div class="col-sm-12 pt-3">
+                                                <h1 style="color: white">-</h1>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <div class="col-sm-12" style="color: white">
+                                                <h5>Preis bis</h5>
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <input name="price_amount_lte" class="form-control" type='number'
+                                               value="{% if request.GET.price_amount_lte %}{{ request.GET.price_amount_lte }}{% else %}999{% endif %}" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 mt-3">
+                                        <h5 style=" color:white"> Sortieren nach </h5>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <select name="sort" class="pt-2 pb-2 mb-2" style="
+                                            width: 100%;
+                                            background-color: #1F2833;
+                                            color: white;
+                                            border-radius: 10px;
+                                        ">
+                                            {% if request.GET.sort %}
+                                        {% if request.GET.sort == "-price" %}
+                                        <option selected value="-price">Absteigend</option>
+                                        <option value="price">Aufsteigend</option>
+                                        {% endif %}
+                                        {% if request.GET.sort == "price" %}
+                                        <option value="-price">Absteigend</option>
+                                        <option selected value="price">Aufsteigend</option>
+                                        {% endif %}
+                                    {% else %}
+                                        <option selected value="-price">Absteigend</option>
+                                        <option value="price">Aufsteigend</option>
+                                    {% endif %}
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <h5 style="color: white" class="pt-4">Shops</h5>
+                                    </div>
+                                    <div class="col-sm-12 p-3 collapse-cat-pc">
+                                        {% for cat in ShopsList %}
+                                        <h6>
+                                            {% if cat.description == 'Lego' %}
+                                        {% else %}
+                                            <a href="{% url 'PublicProductSearch' %}?shops={{ cat.id }}"  class='text-white' style="text-decoration: none"> {{cat.name}}</a>
+                                        {% endif %}
+                                        </h6>
+                                        {% endfor %}
+                                    </div>
+                                    <div class="col-sm-12 pb-3 collapse-cat-mobile">
+                                        <select name="shops" class="pt-2 pb-2 mb-2" style="
+                                                width: 100%;
+                                                background-color: #1F2833;
+                                                color: white;
+                                                border-radius: 10px">
+                                            {% if not request.GET.shops %}<option selected value="0">Select Shop</option>{% endif %}
+                                            {% for cat in ShopsList %}
+                                            <option {% if request.GET.shops  == cat.id %} selected="" {% endif %} value={{ cat.id }}>{{ cat.name }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                    <button type="submit" class='btn btn-dark p-2 text-white px-5' style="margin-top: 10px;margin-bottom: 10px;width: 100%">Filtern</button>
+                                </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% block customJS %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+            <script>
+                $(document).ready(function(){
+                    $('.showAllShopsBtn').click(function(){
+                      $('.showAllShopsBtn').hide()   
+                      $('.limitedShops').hide()
+                      $('.fullShops').show()  
+                    })
+                })
+            </script>
+        {% endblock %}
+{% endblock %}
+
+

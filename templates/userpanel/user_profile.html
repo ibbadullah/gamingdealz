@@ -1,0 +1,144 @@
+<!doctype html>
+{% load static %}
+{% load widget_tweaks %}
+<html lang="en">
+  <head>
+
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/duotone.css" integrity="sha384-R3QzTxyukP03CMqKFe0ssp5wUvBPEyy9ZspCB+Y01fEjhMwcXixTyeot+S40+AjZ" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/fontawesome.css" integrity="sha384-eHoocPgXsiuZh+Yy6+7DsKAerLXyJmu2Hadh4QYyt+8v86geixVYwFqUvMU8X90l" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/duotone.css"
+    integrity="sha384-R3QzTxyukP03CMqKFe0ssp5wUvBPEyy9ZspCB+Y01fEjhMwcXixTyeot+S40+AjZ" crossorigin="anonymous" />
+    <title>{% block title %}
+    {% endblock %}</title>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex,nofollow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <style>
+          .btn-upload {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .inputt {
+    position: absolute;
+    font-size: 50px;
+    opacity: 0;
+    right: 0;
+    top: 0;
+  }
+
+  .border-radius{
+      border-radius: 20px;
+      background-color: #1F2833;
+      border-color: lightgray;
+  }
+
+  .background-gradiant{
+      background-color: #11161d;
+  }
+ .profile-img-user{
+     width: 150px;
+     height: 150px;
+     border-radius: 50%;
+ }
+
+  @media screen and (max-width: 790px)
+{
+    .profile-img-user{
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+    }
+    .responsive{
+        display: none;
+    }
+    .padding-responsive{
+        padding-left: 5%;
+    }
+}
+          .background-gradiant{
+                  background-image: linear-gradient(to right,black, #545454 );
+              min-height: 100vh;
+              max-height: 1000px;
+          }
+          .img-user{
+              min-height: 200px;
+              max-height: 1000px;
+          }
+          .m-auto{
+              color: white !important;
+          }
+      </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+
+<div class="col-sm-12 container p-0" style="overflow-x: hidden; overflow-y: auto">
+            <div class="row" style="height: 100vh" >
+                <div class="col-sm-4 bg-dark" >
+                    <div class="col-sm-12 text-center mt-5" style="">
+                        <img src="{{ request.user.profile.img.url }}" class=" profile-img-user" />
+                    </div>
+                    <div class="col-sm-12 text-center text-white pt-5">
+                        <h4><b>{{ request.user.name }}</b></h4>
+                    </div>
+                    <div class="col text-center py-2 pt-3">
+                        <a href="{% url 'user_logout' %}" class="btn btn-outline-danger text-white">Logout</a>
+                    </div>
+                    <hr class="border-white">
+                    <div class="col text-center py-2">
+                        <a href="https://gaming-deals.de/" class="btn btn-outline-secondary text-white">Go to Home</a>
+                    </div>
+                </div>
+
+                <div class="col-sm-8 " style="background-color: black ">
+                    <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                        {% include 'include/form_error.html' %}
+                    <h2 class="text-center text-white pt-5">Update Account</h2>
+                    <div class="row" style="padding-top: 5%">
+                        <div class="col-sm-12 pt-4">
+                            <div class="col-sm-12 m-auto">
+                                {% render_field form.first_name class="form-control" placeholder="First Name" %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row pt-4" >
+                        <div class="col-sm-12">
+                            <div class="col-sm-12 m-auto">
+                                {% render_field form.last_name class="form-control" placeholder="Last Name" %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row pt-4" >
+                        <div class="col-md-12">
+                            <div class="col-sm-12 m-auto">
+                                {% render_field form.email class="form-control" placeholder="Email" value=request.user.email %}
+                            </div>
+                        </div>
+                    </div>
+                        <div class="row pt-4" >
+                        <div class="col-sm-12">
+                            <div class="col-sm-12 m-auto">
+                                {% render_field form.img class="form-control" placeholder="Last Name" %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 mt-5 text-center">
+                        <button type="submit" class="btn-lg btn-dark btn-sm m-auto px-5">
+                            <h5>Update</h5>
+                        </button>
+                    </div>
+                        </form>
+                </div>
+
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,71 @@
+{% extends 'publicarea/base.html' %}
+{% load publicarea %}
+{% load static %}
+
+{% block seotags %}
+    <title>Favorite Gaming Deals</title>
+
+    <meta name="robots" content="noindex,nofollow" />
+    
+{% endblock %}
+
+{% block styles %}
+    <style>
+    .background-gradiant-1 {
+        background-image: linear-gradient(90deg,#000,#545454);
+    }
+    .background-chnge-1 {
+        background-color: #1f2833;
+        border-radius: 20px;
+    }
+    @media only screen and (max-width: 600px){
+        .mobile-view-deals-card {
+            margin-left: auto!important;
+            margin-right: auto!important;
+            display: block!important;
+            margin-top: 15px;
+        }}
+    </style>
+{% endblock %}
+
+{% block content %}
+
+    <div class="col-sm-12 background-gradiant-1 p-0" style="overflow-X:hidden">
+            <div class="col-sm-12 background-learner" >
+                <div class="m-4">
+                    <div class="background-chnge-1 text-white">
+                        <h1 class='text-center pt-3 deals-text' style="color: white;margin-bottom: 20px;font-weight: 300"><b>Favorite Gaming Deals</b></h1>
+                        <div class="col-sm-12" >
+                            <div class='row mr-auto'>
+                                {% for fav in favorites %}
+                                    <div class="home-categories mobile-view-deals-card">
+                                        <div class="home-product-card-bg">
+                                            <a href="{{fav.clickout_url}}" class='text-white text-decoration-none' target='_blank' rel="noreferrer">
+                                                <div>
+                                                    <img class="" src="{{fav.main_image}}" alt="card image cap" />
+                                                    <div class="text-center">
+                                                        <h5 class="product-card-title" style="color:white">{{ fav.name }}</h5>
+                                                        <button href="#" class="btn btn-dark card-details-btn" style="background-color:black;border: 1px solid white">
+                                                            <a href="{{fav.clickout_url}}" class='text-white' target='_blank' rel="noreferrer">
+                                                                Eur : {{ fav.price_info.price.amount|priceDot }} <i class="fas fa-chevron-right"></i>
+                                                            </a>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% if not favorites|length > 5 %}
+                <div style="height: 60vh"></div>
+                {% endif %}
+            </div>
+
+{% endblock %}
+
+

@@ -1,0 +1,107 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="Eslint" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="HtmlUnknownAttribute" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="myValues">
+        <value>
+          <list size="6">
+            <item index="0" class="java.lang.String" itemvalue="class" />
+            <item index="1" class="java.lang.String" itemvalue="to" />
+            <item index="2" class="java.lang.String" itemvalue="hx-get" />
+            <item index="3" class="java.lang.String" itemvalue="hx-trigger" />
+            <item index="4" class="java.lang.String" itemvalue="hx-target" />
+            <item index="5" class="java.lang.String" itemvalue="hx-swap" />
+          </list>
+        </value>
+      </option>
+      <option name="myCustomValuesEnabled" value="true" />
+    </inspection_tool>
+    <inspection_tool class="HtmlUnknownTag" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="myValues">
+        <value>
+          <list size="8">
+            <item index="0" class="java.lang.String" itemvalue="nobr" />
+            <item index="1" class="java.lang.String" itemvalue="noembed" />
+            <item index="2" class="java.lang.String" itemvalue="comment" />
+            <item index="3" class="java.lang.String" itemvalue="noscript" />
+            <item index="4" class="java.lang.String" itemvalue="embed" />
+            <item index="5" class="java.lang.String" itemvalue="script" />
+            <item index="6" class="java.lang.String" itemvalue="div" />
+            <item index="7" class="java.lang.String" itemvalue="h5" />
+          </list>
+        </value>
+      </option>
+      <option name="myCustomValuesEnabled" value="true" />
+    </inspection_tool>
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <value>
+          <list size="40">
+            <item index="0" class="java.lang.String" itemvalue="djangorestframework-simplejwt" />
+            <item index="1" class="java.lang.String" itemvalue="psycopg2-binary" />
+            <item index="2" class="java.lang.String" itemvalue="asgiref" />
+            <item index="3" class="java.lang.String" itemvalue="pytz" />
+            <item index="4" class="java.lang.String" itemvalue="Pillow" />
+            <item index="5" class="java.lang.String" itemvalue="sqlparse" />
+            <item index="6" class="java.lang.String" itemvalue="django-ckeditor" />
+            <item index="7" class="java.lang.String" itemvalue="django-js-asset" />
+            <item index="8" class="java.lang.String" itemvalue="psycopg2" />
+            <item index="9" class="java.lang.String" itemvalue="python-decouple" />
+            <item index="10" class="java.lang.String" itemvalue="six" />
+            <item index="11" class="java.lang.String" itemvalue="Automat" />
+            <item index="12" class="java.lang.String" itemvalue="pygame" />
+            <item index="13" class="java.lang.String" itemvalue="cffi" />
+            <item index="14" class="java.lang.String" itemvalue="pycodestyle" />
+            <item index="15" class="java.lang.String" itemvalue="numpy" />
+            <item index="16" class="java.lang.String" itemvalue="pyasn1" />
+            <item index="17" class="java.lang.String" itemvalue="pycparser" />
+            <item index="18" class="java.lang.String" itemvalue="constantly" />
+            <item index="19" class="java.lang.String" itemvalue="pyasn1-modules" />
+            <item index="20" class="java.lang.String" itemvalue="Keras-Preprocessing" />
+            <item index="21" class="java.lang.String" itemvalue="filelock" />
+            <item index="22" class="java.lang.String" itemvalue="pyOpenSSL" />
+            <item index="23" class="java.lang.String" itemvalue="backports.entry-points-selectable" />
+            <item index="24" class="java.lang.String" itemvalue="txaio" />
+            <item index="25" class="java.lang.String" itemvalue="daphne" />
+            <item index="26" class="java.lang.String" itemvalue="autopep8" />
+            <item index="27" class="java.lang.String" itemvalue="hyperlink" />
+            <item index="28" class="java.lang.String" itemvalue="service-identity" />
+            <item index="29" class="java.lang.String" itemvalue="cryptography" />
+            <item index="30" class="java.lang.String" itemvalue="zope.interface" />
+            <item index="31" class="java.lang.String" itemvalue="incremental" />
+            <item index="32" class="java.lang.String" itemvalue="toml" />
+            <item index="33" class="java.lang.String" itemvalue="autobahn" />
+            <item index="34" class="java.lang.String" itemvalue="channels" />
+            <item index="35" class="java.lang.String" itemvalue="platformdirs" />
+            <item index="36" class="java.lang.String" itemvalue="Django" />
+            <item index="37" class="java.lang.String" itemvalue="virtualenv" />
+            <item index="38" class="java.lang.String" itemvalue="distlib" />
+            <item index="39" class="java.lang.String" itemvalue="Twisted" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyPep8NamingInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredErrors">
+        <list>
+          <option value="N802" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyShadowingBuiltinsInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredNames">
+        <list>
+          <option value="next" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="shop.admin.*" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>

@@ -1,0 +1,47 @@
+        <footer id="footer" class="footer bg-base-0">
+            <div class="container py-5">
+                <hr>
+                <div class="row">
+                    <div class="col-12 col-lg order-2 order-lg-1">
+                        <div class="text-muted py-1">© {% now 'Y' %}. All rights reserved.</div>
+                    </div>
+                    <div class="col-12 col-lg-auto order-1 order-lg-2 d-flex flex-column flex-lg-row">
+                        <div class="nav p-0 mx-n3 mb-3 mb-lg-0 d-flex flex-column flex-lg-row">
+                            <div class="nav-item d-flex">
+                                <form method="GET" action="{% url 'change-theme' %}">
+                                    <input type="hidden" name="path" value="{{ request.path }}">
+                                <button  class="nav-link py-1 d-flex align-items-center text-secondary bg-transparent border-0"
+                                    id="dark-mode" data-enable="tooltip" title="" data-dark-mode="0"
+                                    data-original-title="Change theme">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="width-4 height-4 fill-current mr-2"
+                                        viewBox="0 0 17.58 17.58">
+                                        <path d="M8.79,3.29v11a5.5,5.5,0,0,0,0-11Z"></path>
+                                        <path
+                                            d="M8.79,2A6.79,6.79,0,1,1,2,8.79,6.8,6.8,0,0,1,8.79,2m0-2a8.79,8.79,0,1,0,8.79,8.79A8.8,8.8,0,0,0,8.79,0Z">
+                                        </path>
+                                    </svg> <span class="text-muted">{{ request.session.theme|capfirst }}</span>
+                                </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+{#            <div class="fixed-bottom pointer-events-none">#}
+{#                <div class="d-flex justify-content-center align-items-center">#}
+{#                    <div class="border-0 mt-0 mr-3 mb-3 ml-3 p-2 rounded cookie-banner pointer-events-auto"#}
+{#                        id="cookie-banner">#}
+{#                        <div class="row align-items-center p-1">#}
+{#                            <div class="col">#}
+{#                                By using this website, you agree to our <a#}
+{#                                    href="">cookie policy</a>.#}
+{#                            </div>#}
+{#                            <div class="col-auto">#}
+{#                                <button class="btn btn-outline-primary btn-sm" id="cookie-banner-dismiss">OK</button>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+        </footer>

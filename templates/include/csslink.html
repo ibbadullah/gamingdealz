@@ -1,0 +1,15 @@
+{% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="" rel="icon">
+    <link href="
+    {% if request.session.theme == 'dark'  %}
+        {% static "css/dark.css" %}
+    {% else %}
+        {% static "css/light.css" %}
+    {% endif %}
+    " rel="stylesheet" id="app-css">
+
+    <style>
+        @import url("https://rsms.me/inter/inter.css");
+    </style>

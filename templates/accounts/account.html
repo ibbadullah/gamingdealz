@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block contant %}
+<div class="container py-3 my-3">
+        <nav aria-label="breadcrumb">
+        <ol class="breadcrumb px-0 bg-transparent font-weight-medium mb-0">
+            <li class="breadcrumb-item d-flex align-items-center">
+                <a href="{% url 'home' %}" class="text-muted">Dashboard</a>
+                <svg xmlns="http://www.w3.org/2000/svg" class="fill-current width-3 height-3 mx-3 text-muted"
+                     viewBox="0 0 7.41 12"><path d="M0,1.41,4.58,6,0,10.59,1.41,12l6-6-6-6Z"></path></svg></li>
+            <li class="breadcrumb-item active text-dark">Account</li>
+        </ol>
+    </nav>
+
+<h2 class="mb-0 d-inline-block">Account</h2>
+
+<div class="row">
+            <div class="col-12 mt-3">
+                <div class="card border-0 h-100 shadow-sm">
+                    <div class="card-body d-flex align-items-center text-truncate">
+                        <div class="d-flex position-relative text-primary width-8 height-8 align-items-center justify-content-center flex-shrink-0">
+                            <div class="position-absolute bg-primary opacity-10 top-0 right-0 bottom-0 left-0 border-radius-35"></div>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="fill-current width-4 height-4" viewBox="0 0 18 18"><path d="M16,2V16H2V2H16m0-2H2A2,2,0,0,0,0,2V16a2,2,0,0,0,2,2H16a2,2,0,0,0,2-2V2A2,2,0,0,0,16,0ZM9,9a3,3,0,1,1,3-3A3,3,0,0,1,9,9ZM9,5a1,1,0,1,0,1,1A1,1,0,0,0,9,5Zm6,10H3V13.47C3,11,7,9.89,9,9.89s6,1.08,6,3.58ZM5.31,13h7.38A7,7,0,0,0,9,11.88,7,7,0,0,0,5.31,13Z"></path></svg>                    </div>
+                        <div class="text-dark font-weight-medium font-size-lg mx-3 text-truncate">Profile</div>
+                        <a href="{% url 'user-profile-edit' %}" class="text-secondary stretched-link text-decoration-none d-flex align-items-center text-truncate ml-auto">
+                            <div class="text-truncate d-none d-md-flex">Update your profile information</div>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="text-secondary flex-shrink-0 width-3 height-3 fill-current mx-2" viewBox="0 0 7.41 12"><path d="M0,1.41,4.58,6,0,10.59,1.41,12l6-6-6-6Z"></path></svg>                    </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 mt-3">
+                <div class="card border-0 h-100 shadow-sm">
+                    <div class="card-body d-flex align-items-center text-truncate">
+                        <div class="d-flex position-relative text-primary width-8 height-8 align-items-center justify-content-center flex-shrink-0">
+                            <div class="position-absolute bg-primary opacity-10 top-0 right-0 bottom-0 left-0 border-radius-35"></div>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="fill-current width-4 height-4" viewBox="0 0 14 18"><path d="M1,16a2,2,0,0,0,2,2h8a2,2,0,0,0,2-2V6a2,2,0,0,0-2-2H3A2,2,0,0,0,1,6ZM4,6h6a1,1,0,0,1,1,1v8a1,1,0,0,1-1,1H4a1,1,0,0,1-1-1V7A1,1,0,0,1,4,6Zm6.5-5L9.79.29A1,1,0,0,0,9.09,0H4.91a1,1,0,0,0-.7.29L3.5,1H1A1,1,0,0,0,1,3H13a1,1,0,0,0,0-2Z"></path></svg>                    </div>
+                        <div class="text-dark font-weight-medium font-size-lg mx-3 text-truncate">Delete</div>
+                        <a href="{% url 'user-profile-del' %}" class="text-secondary stretched-link text-decoration-none d-flex align-items-center text-truncate ml-auto">
+                            <div class="text-truncate d-none d-md-flex">Delete your account and associated data</div>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="text-secondary flex-shrink-0 width-3 height-3 fill-current mx-2" viewBox="0 0 7.41 12"><path d="M0,1.41,4.58,6,0,10.59,1.41,12l6-6-6-6Z"></path></svg>                    </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 mt-3">
+                <div class="card border-0 h-100 shadow-sm">
+                    <div class="card-body d-flex align-items-center text-truncate">
+                        <div class="d-flex position-relative text-primary width-8 height-8 align-items-center justify-content-center flex-shrink-0">
+                            <div class="position-absolute bg-primary opacity-10 top-0 right-0 bottom-0 left-0 border-radius-35"></div>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="fill-current width-4 height-4" viewBox="0 0 20.33 20.33"><path d="M11.17,11.17h0a1.41,1.41,0,0,1-2,0h0a1.39,1.39,0,0,1,0-2h0a1.38,1.38,0,0,1,2,0h0A1.42,1.42,0,0,1,11.17,11.17Zm-1-7,2.12,2.12,2.49-2.5L11.58.58a2,2,0,0,0-2.83,0L5.55,3.79l2.5,2.5Zm-6,6L6.29,8.05l-2.5-2.5L.58,8.75a2,2,0,0,0,0,2.82l3.21,3.21,2.5-2.5Zm12,0-2.12,2.12,2.5,2.49,3.2-3.2a2,2,0,0,0,0-2.83l-3.2-3.2-2.5,2.5Zm-6,6L8.05,14.05l-2.5,2.5,3.2,3.2a2,2,0,0,0,2.82,0l3.21-3.2-2.5-2.5Z"></path></svg>
+                        </div>
+                        <div class="text-dark font-weight-medium font-size-lg mx-3 text-truncate">Change Password</div>
+                        <a href="{% url 'account-password-change' %}" class="text-secondary stretched-link text-decoration-none d-flex align-items-center text-truncate ml-auto">
+                            <div class="text-truncate d-none d-md-flex">Change your Account Password</div>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="text-secondary flex-shrink-0 width-3 height-3 fill-current mx-2" viewBox="0 0 7.41 12"><path d="M0,1.41,4.58,6,0,10.59,1.41,12l6-6-6-6Z"></path></svg>                    </a>
+                    </div>
+                </div>
+            </div>
+
+    </div>
+    </div>
+{% endblock %}

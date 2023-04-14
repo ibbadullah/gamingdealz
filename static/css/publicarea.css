@@ -1,0 +1,459 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+}
+.footer-div{
+
+}
+.copyright-footer-p{
+  color: white;
+  font-size: 12px;
+  text-align: center;
+}
+.copyright-footer-p a{
+  text-decoration: none;
+  color: white;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h5 {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -ms-word-break: break-all;
+}
+.modal-content{
+  background: none;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+.active .page-link {
+  background-color: #343a40 !important;
+  border: #343a40 !important;
+}
+
+input::-webkit-input-placeholder {
+  color: rgba(32, 27, 27, 0.438) !important;
+}
+.collapse-cat-mobile {
+  display: none !important;
+}
+
+.collapse-cat-pc {
+  display: block !important;
+}
+.product-title-padding {
+  padding-left: 20px;
+}
+.offers-mobile {
+  display: none;
+}
+.offers-pc {
+  display: block;
+}
+.product-listing-brand-onpc {
+  display: block;
+}
+.img-size-product {
+  height: 400px;
+  width: 500px;
+}
+.our-fav-text {
+  padding: 40px;
+}
+.footer-logo-style {
+  width: 120px !important;
+  margin-top: 15px;
+}
+.footer-links-wrapper{
+  margin-top: 30px;
+}
+.footer-links-wrapper a{
+  display: inline-block;
+  text-decoration: none;
+  margin: 12px;
+  font-weight: bold;
+}
+.card-bg{
+  width: 200px !important;
+  height: 320px !important;
+  overflow: hidden;
+  float: left;
+  margin: 15px;
+  border-radius: 5px;
+  background-color: rgb(52, 58, 64);
+  text-decoration: none;
+}
+.card-bg:hover{
+  text-decoration: none !important;
+}
+.card-img{
+  width: 200px !important;
+  height: 200px !important;
+  border-radius: 0px !important;
+}
+.card-product-title{
+  height: 40px;
+  width: 200px;
+  margin-top: 6px;
+  padding-left: 6px;
+  padding-right: 6px;
+  text-align: center;
+}
+.card-text{
+  max-height: 38px;
+  overflow: hidden;
+}
+
+.button-wraper{
+  margin-top: 8px;
+}
+.btn-price{
+  background-color: #23272b;
+  color: white;
+  width: 80%;
+  margin-left: 10%;
+  height: 30px;
+  font-size: 14px;
+  line-height: 30px;
+  padding: 0px;
+}
+.btn-price:hover{
+  color: white;
+  opacity: 0.9;
+}
+.m-btn-price{
+  display: none;
+}
+.mobile-filter-button{
+  display: none;
+}
+/*Home page changes*/
+.news-card{
+  width: 270px !important;
+  float: left;
+  margin-left: 20px;
+  display: inline-block;
+}
+.news-published-date{
+  font-size: 15px;
+}
+.react-multi-carousel-item{
+  width: 278px !important;
+}
+.custom-card-title{
+  font-size: 20px;
+  max-height: 47px;
+  overflow: hidden;
+}
+.product-card-title{
+  font-size: 15px;
+  max-height: 40px;
+  overflow: hidden;
+  padding: 5px;
+}
+.card-body{
+  padding: 4px 6px 4px 6px;
+}
+.product-card-price{
+  font-size: 19px;
+}
+.card-details-btn{
+    margin-bottom: 10px;
+}
+.desktop-footerNav{
+  text-align: center;
+}
+.desktop-footerSocail{
+    text-align: center;
+  }
+
+/*Home cards final*/
+.home-card-bg{
+  width: 200px !important;
+  height: 290px !important;
+  overflow: hidden;
+  float: left;
+  margin: 15px;
+  border-radius: 5px;
+  background-color: rgb(52, 58, 64);
+  text-decoration: none;
+}
+.home-card-bg:hover{
+  text-decoration: none !important;
+}
+.home-card-bg img{
+  width: 200px !important;
+  height: 200px !important;
+  border-radius: 0px !important;
+}
+.home-card-title{
+  font-size: 18px !important;
+  margin-top: 5px !important;
+}
+.home-categories{
+  width: 208px !important;
+}
+.home-product-card-bg{
+  width: 200px !important;
+  height: 300px !important;
+  overflow: hidden;
+  float: left;
+  margin: 15px;
+  border-radius: 5px !important;
+  background-color: rgb(52, 58, 64);
+  text-decoration: none;
+}
+.home-product-card-bg img{
+  width: 200px !important;
+  height: 200px !important;
+  border-radius: 0px !important;
+}
+@media only screen and (max-width: 600px) {
+
+  /*New cards stying mobile version*/
+  .m-card-bg{
+    width: 90% !important;
+    margin-left: 5% !important;
+    height: 100px !important;
+  }
+  .m-card-image-wrapper{
+    display: inline-block;
+    width: 20%;
+    float: left;
+  }
+  .m-card-img{
+    width: 100px !important;
+    height: 100px !important;
+  }
+  .m-card-product-title{
+    width: 80%;
+    float: left !important;
+    margin-top: 6px;
+    padding-left: 15% !important;
+    padding-right: 5% !important;
+    text-align: center;
+  }
+  .m-button-wraper{
+    display: none;
+  }
+  .m-btn-price{
+    display: block;
+    font-weight: bold;
+  }
+
+  .img-size-product {
+    height: 150px;
+    width: 200px;
+    border-bottom-left-radius: 25px;
+    border-top-right-radius: 0 !important;
+  }
+  .mobile-filter-button{
+    display: block !important;
+    float: right;
+    margin-right: 5px;
+  }
+  .desktop-filter{
+    display: none;
+  }
+  .our-fav-text {
+    font-size: 30px;
+    padding: 20px;
+  }
+
+  .product-listing-brand-onpc {
+    display: none;
+  }
+  .offers-mobile {
+    display: block;
+  }
+  .offers-pc {
+    display: none;
+  }
+  .react-multi-carousel-list {
+    margin-top: 40px;
+  }
+  .back-image {
+    height: 80vh !important;
+  }
+  .home-search {
+    padding-top: 20px;
+  }
+  .our-fov-text {
+    margin-top: 7px;
+    font-size: 17px;
+  }
+  .our-fov-button {
+    font-size: 17px;
+    padding: 0;
+  }
+  .gaming-products-text {
+    margin-top: 7px;
+    font: 1.2em sans-serif;
+  }
+  .news-text {
+    margin-top: 7px;
+    font: 1.2em sans-serif;
+  }
+  .gaming-product-section {
+    margin-bottom: 15px;
+  }
+  .mobile-screen-top-search {
+    padding: 0px;
+  }
+  .new-headline-text {
+    font: 1.2em sans-serif;
+  }
+  .background-learner-news {
+    padding: 0px;
+  }
+
+  .recommended-for-you-text {
+    margin-top: 7px;
+    font: 1.2em sans-serif;
+  }
+  .deals-text {
+    font: 1.3em sans-serif;
+  }
+  .collapse-cat-pc {
+    display: none !important;
+  }
+  .collapse-cat-mobile {
+    display: block !important;
+  }
+  .responce-img {
+    height: 170px !important;
+  }
+  .border-img {
+    border-bottom-left-radius: 20px !important;
+    border-top-right-radius: 0 !important;
+  }
+  .img-hight {
+    height: 150px !important;
+  }
+  .product-title-padding {
+    padding: 0;
+    font-size: 14px;
+  }
+  .small-size {
+    font-size: 10px;
+  }
+  .card-margen {
+    margin-left: -40px;
+    padding: 15px;
+  }
+  .offers-mobile{
+    font-size: 16px !important;
+  }
+  .footer-links-wrapper a{
+      display: block;
+      width: 100%;
+  }
+  .desktop-footerNav{
+    text-align: left;
+  }
+  .desktop-footerSocail{
+    text-align: left;
+  }
+  .copyright-footer-p{
+    margin-top: 20px;
+  }
+}
+
+/*navbar*/
+.back-color {
+  background-color: black;
+  border: 1px solid black;
+}
+
+.back-color-drop {
+  background-color: gray;
+}
+
+.back-color-drop:hover {
+  background-color: gray;
+}
+
+.back-drop-list:hover {
+  background-color: gray;
+}
+
+.back-color:hover {
+  background-color: gray;
+  transition: 8s;
+  border: 1px solid white;
+}
+/*Index page*/
+input::-webkit-input-placeholder {
+  color: rgba(32, 27, 27, 0.438) !important;
+}
+
+.back-image {
+  background-image: url(../img/publicarea/backimage.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-attachment: fixed;
+  position: relative;
+}
+.backlayer{
+  position: absolute;
+  background-color: rgba(0,0,0,0.6);
+  width: 100%;
+  height: 100vh;
+  left: 0;
+}
+.back-image-2 {
+  background-image: url(../img/publicarea/back3.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-attachment: fixed;
+}
+
+.padding-t {
+  padding-top: 10%;
+}
+
+.padding-tt {
+  padding-top: 7%;
+}
+.padding-ttt {
+  padding-top: 3%;
+}
+
+.frame-responsive {
+  width: 100%;
+  height: 80vh;
+}
+
+@media screen and (max-width: 790px) {
+  .frame-responsive {
+    width: 100%;
+    height: 100%;
+  }
+  .back-image {
+    background-image: url(../img/publicarea/backimage.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+  .back-image-2 {
+    background-image: url(../img/publicarea/back3.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+}

@@ -1,0 +1,73 @@
+{% extends 'publicarea/base.html' %}
+{% load static %}
+
+{% block seotags %}
+    <title>News</title>
+    <meta name="description" content="Know about the latest news. Gaming-deals.de is a wonderful site for gaming deals." />
+    <meta name="keywords" content="gaming offers news, news" />
+    <meta name="author" content="gaming-deals" />
+    <meta name="robots" content="index,follow" />
+    <meta property="og:title" content="News" />
+    <meta property="og:description" content="Know about the latest news. Gaming-deals.de is a wonderful site for gaming deals." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://gaming-deals.de/news" />
+    <meta property="og:image" content="https://i.ibb.co/k9Bcqbm/Final-logo-black.jpg" />
+    <meta property="og:site_name" content="gaming-deals" />
+    <link rel="canonical" href="https://gaming-deals.de/news" />
+{% endblock %}
+
+{% block styles %}
+    <style>
+    .background-gradiant-1 {
+        background-image: linear-gradient(90deg,#000,#545454);
+    }
+    .background-chnge-1 {
+        background-color: #1f2833;
+        border-radius: 20px;
+    }
+    @media only screen and (max-width: 600px){
+        .mobile-news-card {
+            margin-left: auto!important;
+            margin-right: auto!important;
+            display: block!important;
+            margin-top: 15px;
+        }}
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="col-sm-12 background-gradiant-1 p-0" style="overflow-X:hidden">
+            <div class="col-sm-12 background-learner" >
+                <div class="m-4">
+                    <div class="background-chnge-1 text-white">
+                        <h1 class='text-center pt-3 deals-text' style="color: white;margin-bottom: 20px;font-weight: 300"><b>Gaming News</b></h1>
+                        <div class="col-sm-12" >
+                            <div class='row mr-auto'>
+                                {% for GNew in GNews %}
+                                    <div class="news-card mobile-news-card" >
+                                        <div style=" border-radius: 15px; overflow: hidden;background-color: #161a1b00; border-style: none">
+                                            <a href='{% url 'PublicNewsDetails' GNew.slug %}' style="color:white; text-decoration: none;" class='text-decoration-none'>
+                                                <img class="card-img-top" height="200" width='270' src='{{ GNew.img.url }}' alt="card image cap " />
+                                                <div class="card-body text-left pl-0 pr-0" style=" background-color: #161a1b00; border-bottom-left-radius: 15px;border-bottom-right-radius: 15px">
+                                                    <h5 class="card-title custom-card-title" style="color: white">{{ GNew.headline }}</h5>
+                                                    <p class="news-published-date" style=" color:grey">Veröffentlichungsdatum : {{GNew.create_on}}</p>
+                                                    <a href="{% url 'PublicNewsDetails' GNew.slug %}" style=" text-decoration: none; color: white; width: 100%; margin-bottom: 20px">
+                                                        <button class="btn btn-dark" style=" width: 100%; margin-bottom:20px"> Zur news</button>
+                                                    </a>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                {% if not GNews|length > 4 %}
+                <div style="height: 60vh"></div>
+                {% endif %}
+            </div>
+{% endblock %}
+
+

@@ -1,0 +1,5 @@
+User-Agent: *
+Disallow:/
+
+Host: gaming-deals.de
+Sitemap: https://gaming-deals.de/sitemap.xml

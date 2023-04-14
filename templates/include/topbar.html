@@ -1,0 +1,33 @@
+{% load static %}
+<div class="bg-base-0">
+    <div class="container py-5">
+        <div class="d-flex">
+            <div class="row no-gutters w-100">
+                <div class="d-flex col-12 col-md">
+                    <div class="flex-shrink-1">
+                        <a href="" class="d-block"><img
+                                src="{{request.user.profile.img.url}}" alt="Profile Image"
+                                class="rounded-circle  width-16 height-16"></a>
+                    </div>
+                    <div class="flex-grow-1 d-flex align-items-center ml-3">
+                        <div>
+                            <h4 class="font-weight-medium mb-0">{{ request.user.profile.first_name }} {{ request.user.profile.last_name }}</h4>
+                            <span>admin</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-auto d-flex flex-row-reverse align-items-center">
+                    <a href="{% url 'news_create' %}"
+                        class="btn btn-primary btn-block d-flex justify-content-center align-items-center mt-4 mt-md-0"><svg
+                            xmlns="http://www.w3.org/2000/svg" class="width-4 height-4 fill-current mr-2"
+                            viewBox="0 0 14 14">
+                            <path
+                                d="M13,8H8v5a1,1,0,0,1-2,0V8H1A1,1,0,0,1,1,6H6V1A1,1,0,0,1,8,1V6h5a1,1,0,0,1,0,2Z">
+                            </path>
+                        </svg>Add News</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
